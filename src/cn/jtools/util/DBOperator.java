@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Êı¾İ¿âCURD²Ù×÷Àà
+ * æ•°æ®åº“CURDæ“ä½œç±»
  * @author smartclover
  *
  */
@@ -24,7 +24,7 @@ public class DBOperator {
 	private static String username = null;
 	private static String pwd = null;
 	
-	//Àà³õÊ¼»¯µÄÊ±ºò»Ø¼ÓÔØstatic´úÂë¿é
+	//ç±»åˆå§‹åŒ–çš„æ—¶å€™å›åŠ è½½staticä»£ç å—
 	static {
 		url = "";
 		username = "";
@@ -38,8 +38,8 @@ public class DBOperator {
 	}
 	
 	/**
-	 * »ñÈ¡Êı¾İ¿âÁ¬½Ó¶ÔÏó
-	 * @return java.sql.Connection ¶ÔÏó»òÕßnull£¨Òì³££©
+	 * è·å–æ•°æ®åº“è¿æ¥å¯¹è±¡
+	 * @return java.sql.Connection å¯¹è±¡æˆ–è€…nullï¼ˆå¼‚å¸¸ï¼‰
 	 */
 	public static Connection getConnection(){
 		try {
@@ -51,13 +51,13 @@ public class DBOperator {
 	}
 	
 	/**
-	 * ¹Ø±Õ ResultSet£¬ Statement£¬ Connection ¶ÔÏó Ëù³ÖÓĞµÄ×ÊÔ´
+	 * å…³é—­ ResultSetï¼Œ Statementï¼Œ Connection å¯¹è±¡ æ‰€æŒæœ‰çš„èµ„æº
 	 * @param rst 
-	 * 			 	ĞèÒª¹Ø±ÕµÄ½á¹û¼¯²Ù×÷×°ÖÃ
+	 * 			 	éœ€è¦å…³é—­çš„ç»“æœé›†æ“ä½œè£…ç½®
 	 * @param st
-	 * 				ĞèÒª¹Ø±ÕµÄÖ¸Áî²Ù×÷×°ÖÃ
+	 * 				éœ€è¦å…³é—­çš„æŒ‡ä»¤æ“ä½œè£…ç½®
 	 * @param con
-	 * 				ĞèÒª¹Ø±ÕµÄÊı¾İ¿âÁ¬½Ó
+	 * 				éœ€è¦å…³é—­çš„æ•°æ®åº“è¿æ¥
 	 */
 	public static void closeJDBC(ResultSet rst, Statement st, Connection con){
 		
@@ -90,21 +90,21 @@ public class DBOperator {
 	}
 	
 	/**
-	 * ´ÓÊı¾İ¿âÖĞ²éÑ¯Êı¾İ
+	 * ä»æ•°æ®åº“ä¸­æŸ¥è¯¢æ•°æ®è¿”å›ä¸€ä¸ªé›†åˆ
 	 * @param cl 
-	 * 				Ö¸¶¨µÄÊµÌåÀà ÀàÎÄ¼ş
+	 * 				æŒ‡å®šçš„å®ä½“ç±» ç±»æ–‡ä»¶
 	 * @param sql
-	 * 				Ö¸¶¨ ²éÑ¯Óï¾ä
+	 * 				æŒ‡å®š æŸ¥è¯¢è¯­å¥
 	 * @param args
-	 * 				sqlµÄ²ÎÊı£¨¿ÉÑ¡£©<br>
-	 * @return ·â×°ÓĞÏà¹Ø²éÑ¯½á¹ûµÄlist
-	 * @ÊµÀı String sql = "select * from User where id=? and name=?"; <br>
+	 * 				sqlçš„å‚æ•°ï¼ˆå¯é€‰ï¼‰<br>
+	 * @return å°è£…æœ‰ç›¸å…³æŸ¥è¯¢ç»“æœçš„list
+	 * @å®ä¾‹ String sql = "select * from User where id=? and name=?"; <br>
 	 *     exe_Query(User.class, sql, id, name); <br>
 	 *     exe_Query(User.class, sql)
 	 */
 	public static List exe_Query(Class cl, String sql, Object...args ){
 		
-		//»ñÈ¡Êı¾İ¿âÁ¬½Ó
+		//è·å–æ•°æ®åº“è¿æ¥
 		Connection con = getConnection();
 		if (con == null) {
 			return null;
@@ -114,15 +114,15 @@ public class DBOperator {
 		ResultSet rs = null;
 		
 		try {
-			//»ñÈ¡Ö¸Áî²Ù×÷×°ÖÃ
+			//è·å–æŒ‡ä»¤æ“ä½œè£…ç½®
 			ps = con.prepareStatement(sql);
 			
-			//Èç¹ûÓĞ´úÎ»·û"?"Ôò½øĞĞ¸³Öµ²Ù×÷
+			//å¦‚æœæœ‰ä»£ä½ç¬¦"?"åˆ™è¿›è¡Œèµ‹å€¼æ“ä½œ
 			for(int i = 0; i < args.length; i++){
 				ps.setObject(i + 1, args[i]);
 			}
 			
-			//Ö´ĞĞ²Ù×÷»ñÈ¡½á¹û¼¯
+			//æ‰§è¡Œæ“ä½œè·å–ç»“æœé›†
 			rs = ps.executeQuery();
 			
 			Method[] mtds = cl.getMethods();
@@ -135,9 +135,9 @@ public class DBOperator {
 				}
 			}
 			
-			//»ñÈ¡µ½rsËù²Ù×÷µÄ±íµÄÔ­Ê¼ĞÅÏ¢¼¯ºÏ
+			//è·å–åˆ°rsæ‰€æ“ä½œçš„è¡¨çš„åŸå§‹ä¿¡æ¯é›†åˆ
 			ResultSetMetaData rmd = rs.getMetaData();
-			//±íµÄ×Ö¶Î£¨ÁĞ£©¸öÊı
+			//è¡¨çš„å­—æ®µï¼ˆåˆ—ï¼‰ä¸ªæ•°
 			int columnCount = rmd.getColumnCount();
 			System.out.println("columnCount:" + columnCount);
 			List list = new ArrayList();
@@ -157,7 +157,7 @@ public class DBOperator {
 						if (mt != null) {
 							mt.invoke(entity, rs.getObject(i+1));
 						}else{
-							throw new Exception("Î´ÕÒµ½ÊôĞÔÎª"+cn+"µÄ·½·¨");
+							throw new Exception("æœªæ‰¾åˆ°å±æ€§ä¸º"+cn+"çš„æ–¹æ³•");
 						}
 					}
 				} catch (Exception e) {
@@ -176,4 +176,54 @@ public class DBOperator {
 		return null;
 	}
 	
+	/**
+	 * ä»æ•°æ®åº“æŸ¥è¯¢æ•°æ®è¿”å›ä¸€ä¸ªå•ä¸€å®ä½“
+	 * @param cl
+	 * 				å®ä½“ç±»
+	 * @param sql
+	 * 				æŒ‡å®šæŸ¥è¯¢è¯­å¥ï¼Œå¦‚select * from user where id = ?
+	 * @param args
+	 * 				æœ‰å¤šå°‘å ä½ç¬¦"?"ï¼Œå°±ä¼ å‡ ä¸ªå‚æ•°
+	 * @return
+	 */
+	public static Object exe_QueryOne(Class cl, String sql, Object...args){
+		List list = exe_Query(cl, sql, args);
+		return ((list != null && list.size() > 0)?list.get(0):null);
+	}
+	
+	/**
+	 * æ•°æ®æ›´æ–°ï¼ˆå¢åˆ æ”¹æŸ¥ï¼‰æ–¹æ³•
+	 * @param sql
+	 * 				æŒ‡å®šçš„sqlè¯­å¥
+	 * @param args
+	 * 				ä¸ºå ä½ç¬¦"?"èµ‹å€¼
+	 * @return è¿”å›æ“ä½œç»“æœ true æˆ– false
+	 */
+	public static boolean exe_Update(String sql, Object...args){
+		
+		//è·å–è¿æ¥å¯¹è±¡ï¼Œåˆ¤æ–­æ˜¯å¦å¯ç”¨
+		Connection con = getConnection();
+		if (con == null) {
+			return false;
+		}
+		
+		PreparedStatement ps = null;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			
+			if (args != null && args.length > 0) {
+				for(int i = 0; i < args.length; i++){
+					ps.setObject(i + 1, args[i]);
+				}
+			}
+			
+			return ps.executeUpdate() > 0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeJDBC(null, ps, con);
+		}
+		return false;
+	}
 }
