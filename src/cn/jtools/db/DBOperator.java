@@ -1,4 +1,4 @@
-package cn.jtools.util;
+package cn.jtools.db;
 
 import java.lang.reflect.Method;
 import java.sql.Connection;
