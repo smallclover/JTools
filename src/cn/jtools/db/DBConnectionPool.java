@@ -17,7 +17,6 @@ import java.util.Vector;
 public class DBConnectionPool {
 	
 	private ConnectionParam param;
-	private String testTable = "";//测试连接是否可用，值为测试表名，默认是空
 	//Vector动态数组与ArrayList区别是，Vector是线程安全的
 	private Vector connections = null;//存放数据库连接，初始为空，存放PooledConnection类型
 	
@@ -42,29 +41,11 @@ public class DBConnectionPool {
 	public DBConnectionPool(){
 		//
 	}
-	
-	/**
-	 * 获取测试表名
-	 * @return 返回测试表名
-	 */
-	public String getTestTable() {
-		return testTable;
-	}
-	
-	/**
-	 * 设置测试表名
-	 * @param testTable 测试表名
-	 */
-	public void setTestTable(String testTable) {
-		this.testTable = testTable;
-	}
-	
 	/**
 	 * 创建一个数据库连接池，连接池中的可用连接数量采用initialConnections中设置的值
 	 * @throws Exception
 	 */
 	public synchronized void createPool() throws Exception{
-		
 		//确保连接池没有被创建，如果已经创建则直接返回
 		if(connections != null){
 			System.out.println("数据库连接池已经被创建！");
@@ -189,7 +170,6 @@ public class DBConnectionPool {
 		Connection conn = findFreeConnection();
 		
 		if(conn == null){
-			
             // 如果目前连接池中没有可用的连接  
             // 创建一些连接  
 			createConnections(param.getIncreamtalConnections());
@@ -258,8 +238,7 @@ public class DBConnectionPool {
 			try {
 				
 				// 判断测试表是否存在  
-				if("".equals(testTable)){//这里是用testTable判断空还是用空判断testTable，testTable的话可能会存在nullPointer的问题
-					
+				if("".equals(param.getTestTable())){//modified by smallclover
 	                // 如果测试表为空，试着使用此连接的 setAutoCommit() 方法  
 	                // 来判断连接否可用（此方法只在部分数据库可用，如果不可用 ,  
 	                // 抛出异常）。注意：使用测试表的方法更可靠  
@@ -270,7 +249,8 @@ public class DBConnectionPool {
 					Statement stmt = conn.createStatement();
 					ResultSet rs = null;
 					
-					rs = stmt.executeQuery("select * from " + testTable);
+					rs = stmt.executeQuery("select * from " + param.getTestTable());
+					System.out.println(param.getTestTable());
 					while(rs.next()){
 						System.out.println(rs.getString("name"));
 					}
@@ -400,7 +380,7 @@ public class DBConnectionPool {
 	 * 判断数据库连接池是否为空
 	 * @return
 	 */
-	private boolean isEmpty(){//add by me
+	private boolean isEmpty(){//add by smallclover
 		return (connections == null);
 	}
 	
