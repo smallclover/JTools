@@ -6,7 +6,7 @@ Java工具包
  + 1.DBOperator：通过反射的方式实现的对于数据库的增删改查
  + 2.DBConnectionPool：数据库连接池
  + 3.DBConnectionParam：连接数据库所需要的基本字段。
-- 2.**算法&数据结构：主要包含各种常用的数据结构和算法。 *algorithm* 
+- 2.**算法&数据结构：主要包含各种常用的数据结构和算法。** *algorithm* 
  + 1.
  + 2.
 - 3.**工具类** *util*
