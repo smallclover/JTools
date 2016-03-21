@@ -13,3 +13,5 @@
  + 1.StringUtil:字符串操作类工具类
  + 2.ClassUtil:类操作工具类
  + 3.PropUtil:属性文件操作类
+- 4.**日志：** *log*
+ + 1.ILogFactory:日志对象生成工厂
