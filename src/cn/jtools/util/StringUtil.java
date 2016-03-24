@@ -1,30 +1,35 @@
 package cn.jtools.util;
 
 import java.io.UnsupportedEncodingException;
+import java.util.StringTokenizer;
 
 /**
  * 字符串操作工具类
+ * 
  * @author smartclover
- *
+ * 
  */
 public class StringUtil {
-	
+
 	/**
 	 * 判断字符串是否为空
+	 * 
 	 * @param str
 	 * @return
 	 */
-	public static boolean isEmpty(String str){
+	public static boolean isEmpty(String str) {
 		return ((str == null) || (str.length() == 0));
 	}
-	
+
 	/**
-	 * Converts string charset. If charset names are the same, the same string is returned.
-	 * 转换字符串编码格式，如果编码格式相同，则直接返回这个字符串。
+	 * Converts string charset. If charset names are the same, the same string
+	 * is returned. 转换字符串编码格式，如果编码格式相同，则直接返回这个字符串。
+	 * 
 	 * @return
 	 */
-	public static String convertString(String source, String srcCharsetName, String newCharset){//convert转换
-		if(srcCharsetName.equals(newCharset)){
+	public static String convertString(String source, String srcCharsetName,
+			String newCharset) {// convert转换
+		if (srcCharsetName.equals(newCharset)) {
 			return source;
 		}
 		try {
@@ -33,4 +38,29 @@ public class StringUtil {
 			throw new IllegalArgumentException(e);
 		}
 	}
+
+	/**
+	 * 
+	 * @param sSource
+	 *            源字符串
+	 * @param sItem
+	 *            子串
+	 * @param separator
+	 *            分隔符
+	 * @return 若包含则为true ，反之为false
+	 */
+	public static boolean isContain(String sSource, String sItem,
+			String separator) {
+		boolean isReturn = false;
+		StringTokenizer st = null;// ?
+		st = new StringTokenizer(sSource, separator);
+		while (st.hasMoreTokens()) {
+			if (sItem.equals(st.nextToken())) {
+				isReturn = true;
+				break;
+			}
+		}
+		return isReturn;
+	}
+
 }
