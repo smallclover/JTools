@@ -9,7 +9,7 @@
  + 3.DBConnectionParam：连接数据库所需要的基本字段。
 - 2.**算法&数据结构：主要包含各种常用的数据结构和算法：** *algorithm* 
  + 1.LinkedList：单链表
- + 2.
+ + 2.DoubleEndLinkedList：双端链表
 - 3.**工具类：** *util*
  + 1.StringUtil:字符串操作类工具类
  + 2.ClassUtil:类操作工具类
