@@ -6,12 +6,12 @@ package cn.jtools.algorithm;
  * @author smartclover
  * 
  */
-public class BinaryTree {
+public class BinarySearchTree {
 
-	// 节点类
+	// 节点类的内部类
 	private class Node {
-		private Node left;// 指向做节点的引用
-		private Node right;// 指向有节点的引用
+		private Node left;// 指向左节点的引用
+		private Node right;// 指向右节点的引用
 		private int value;// 该结点存储的值
 
 		public Node(Node left, Node right, int value) {
@@ -19,7 +19,6 @@ public class BinaryTree {
 			this.right = right;
 			this.value = value;
 		}
-
 	}
 
 	private Node root; // 根节点
@@ -27,7 +26,7 @@ public class BinaryTree {
 	/**
 	 * 无参构造函数
 	 */
-	public BinaryTree() {
+	public BinarySearchTree() {
 		root = null;
 	}
 
@@ -36,7 +35,7 @@ public class BinaryTree {
 	 * 
 	 * @param array
 	 */
-	public BinaryTree(int[] array) {
+	public BinarySearchTree(int[] array) {
 		for (int arr : array) {
 			insert(arr);
 		}
@@ -62,7 +61,6 @@ public class BinaryTree {
 		} else {
 			if (value <= node.value) {
 				node.left = insert(node.left, value);
-				System.out.println();
 			} else {
 				node.right = insert(node.right, value);
 			}
@@ -81,7 +79,7 @@ public class BinaryTree {
 		}
 
 		int value = node.value;
-		System.out.println(value);
+		System.out.println("value = " + value);
 	}
 
 	/**
@@ -106,7 +104,7 @@ public class BinaryTree {
 		preOrderTravels(root);
 	}
 
-	public Node findNode(Node root, int value) {
+	public Node findNode(int value) {
 		while (root != null) {
 			int currval = root.value;
 			if (currval == value) {
@@ -140,11 +138,32 @@ public class BinaryTree {
 		}
 	}
 
+	/**
+	 * 后续遍历
+	 * 
+	 * @param node
+	 */
+	private void postOrderTravels(Node node) {
+		if (node == null) {
+			return;
+		} else {
+			inOrderTravels(node.left);
+			inOrderTravels(node.right);
+			visit(node);
+		}
+	}
+
+	public void postOrderTravels() {
+		postOrderTravels(root);
+	}
+
 	// 测试
 	public static void main(String[] args) {
 		int[] array = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-		BinaryTree bt = new BinaryTree(array);
+		BinarySearchTree bt = new BinarySearchTree(array);
 		// bt.preOrderTravels();
-		bt.inOrderTravels();
+		// System.out.println(bt.findNode(1));
+		// bt.inOrderTravels();
+		bt.postOrderTravels();
 	}
 }
