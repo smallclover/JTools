@@ -3,29 +3,40 @@ package cn.jtools.algorithm;
 /**
  * 插入排序
  * 
+ * 插入排序是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序的数据，在已排序序列中从后向前扫描，找到相应的位置并插入。
+ * 插入排序在实现上，通常采用in-place(即只需要用到O(1)的额外空间的排序)，因而在从后向前的扫描过程中，需要反复把已排序的元素逐渐向后挪，为最新元素提供插入空间。
+ * 
+ * 算法描述
+ * 
+ * 1.从第一个元素开始，该元素可以认为已经被排序
+ * 2.取出下一个元素，在已经排序的元素序列中从后向前扫描
+ * 3.如果该元素（已排序）大于新元素，将该元素移到下一个位置
+ * 4.重复步骤3，直到找到已排序的元素小于或者等于新元素的位置
+ * 5.将新元素插入到该位置后
+ * 6.重复步骤2~5
+ * 
+ * 
+ * 如果比较操作的代价比交换操作的代价大的话，可以采用二分查找来减少比较操作的数目，该算法可以认为是插入排序的一个变种，称为二分插入排序
  * @author smartclover
  * 
  */
 public class InsertionSort {
 
-	public static int[] sort(int[] arrays, int length) {
-		int le = length;// 待排序数组的长度
-
-		// 从第数组的第二个元素开始遍历
-		for (int j = 1; j < le; j++) {
-			int key = arrays[j];// 将当前需要排序的值赋给一个临时变量key
-			int i = j - 1;// 获得此次遍历的上界
-
-			// 从上界开始向前遍历
-			while (i >= 0 && arrays[i] > key) {
-				// 将比key值大的值向后移动一个位置
-				arrays[i + 1] = arrays[i];
-				i--;
+	public static int[] sort(int[] array, int length) {
+		int i,j,le = length;// 待排序数组的长度
+		int key;//待插入的值
+		
+		//数组的第一个元素(array[0])可以看做已经排好顺序，所以从数组的第二个元素(array[1])开始遍历
+		for(i = 1;i < le; i++){
+			key = array[i];
+			//对已经排好顺序的数组元素从后向前进行遍历，第i个元素是待插入元素，所以遍历从第i-1个元素开始。
+			//判断条件有两个1.数组不能越界，要检查数组的下界。2.若待插入的元素小于已经排序的它的前一个元素，把该元素以及之后的元素全部向后移动一位。
+			for(j = i - 1;j >=0 && array[j] > key; j--){
+				array[j + 1] = array[j]; //向后移动一位
 			}
-			// 将key插入正确位置
-			arrays[i + 1] = key;
+			array[j + 1] = key;//将待排序数值插入
 		}
-		return arrays;
+		return array;
 	}
 
 	public static void main(String[] args) {
