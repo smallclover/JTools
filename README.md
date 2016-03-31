@@ -17,3 +17,6 @@
  + 3.PropUtil:属性文件操作类
 - 4.**日志：** *log*  **(暂时需要测试，补充知识)**
  + 1.ILogFactory:日志对象生成工厂
+ 
+ ## About Me ##
+www.smallclover.com
