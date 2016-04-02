@@ -18,6 +18,7 @@ package cn.jtools.algorithm;
  * 递归地最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归小区，但是这个算法总是会结束，
  * 因为在每次迭代(iteration)中，它至少会把一个元素摆到它最后的位置去。
  * 
+ * 不稳定
  * 
  * @author smallclover
  *
