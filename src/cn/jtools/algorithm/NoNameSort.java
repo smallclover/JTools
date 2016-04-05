@@ -1,15 +1,15 @@
 package cn.jtools.algorithm;
 /**
- * 冒泡排序
+ * 简单的交换排序，每次一遍历找出最小的一个元素
  * @author smallclover
  *
  */
-public class BuddleSort {
+public class NoNameSort {
 	
 	
 	public static void buddleSort(int[] arr){
-		for(int i = 0;i < arr.length; i++){
-			for(int j = 0; j < arr.length; j++){
+		for(int i = 0; i < arr.length; i++){
+			for(int j = i + 1; j < arr.length; j++){
 				int temp;
 				if(arr[j] < arr[i]){
 					temp = arr[i];
@@ -17,11 +17,13 @@ public class BuddleSort {
 					arr[j] = temp;
 				}
 			}
-		}
-		
+			for (int k : arr) {
+				System.out.print(k + " ");
+			}
+			System.out.println();
+		}	
 	}
-	
-	
+		
 	public static void main(String[] args) {
 		int [] arr = {4,3,6,7,8,1,5,9,2,10};
 		
@@ -30,5 +32,5 @@ public class BuddleSort {
 		for (int i : arr) {
 			System.out.print(i + " ");
 		}
-	}
+	}			
 }
