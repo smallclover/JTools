@@ -1,4 +1,4 @@
-package cn.jtools.algorithm;
+package cn.jtools.base.algorithm.sort;
 /**
  * 简单的交换排序，每次一遍历找出最小的一个元素
  * @author smallclover

@@ -1,4 +1,4 @@
-package cn.jtools.algorithm;
+package cn.jtools.base.algorithm.sort;
 /**
  * 冒泡排序
  * 

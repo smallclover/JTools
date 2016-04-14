@@ -1,4 +1,4 @@
-package cn.jtools.algorithm;
+package cn.jtools.base.datastruct;
 
 /**
  * 单链表Singly LinkedList
