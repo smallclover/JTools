@@ -1,4 +1,4 @@
-package cn.jtools.base.datastruct;
+package cn.jtools.base.algorithm.sort;
 
 /**
  * 堆排序
