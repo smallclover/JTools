@@ -50,7 +50,7 @@ public class ArrayStack<T> implements Stack<T> {
 	
 	
 	private void resize(){
-		Object[] temp = new Object[objs.length * 3 /2 + 1];
+		Object[] temp = new Object[objs.length * 3 /2 + 1];//?数组的扩展策略
 		for(int i = 0; i < size; i++){
 			temp[i] = objs[i];
 			objs[i] = null;
