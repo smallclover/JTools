@@ -14,12 +14,21 @@
  + 4.NoNameSort：基本的交换排序
  + 5.BubbleSort：冒泡排序及其优化
  + 6.InsertionSort：插入排序
+ + 7.BucketSort：桶排序
+ + 8.QuickSort：快速排序
+ + 9.LinkQueue：链队列
+ + 10.SequenceQueue：顺序队列
+ + 11.ArrayStack：数组栈
+ + 12.Stack：栈接口
 - 3.**工具类：** *util*
  + 1.StringUtil:字符串操作类工具类
  + 2.ClassUtil:类操作工具类
  + 3.PropUtil:属性文件操作类
 - 4.**日志：** *log*  **(暂时需要测试，补充知识)**
- + 1.ILogFactory:日志对象生成工厂
- 
+ + 1.ILogFactory：日志对象生成工厂
+ + 2.ILogFactoryInterface：日志工厂接口
+ + 3.ILogger：日志对象
+ + 4.JDKLogger：JDK日志对象
+ + 5.JDKLoggerFactory：JDK日志工厂
  ## About Me ##
 www.smallclover.com
