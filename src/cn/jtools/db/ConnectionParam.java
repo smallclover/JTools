@@ -19,11 +19,11 @@ public class ConnectionParam implements Serializable {
 	private String url;// 数据库连接路径
 	private String user;// 数据库连接用户
 	private String password;// 数据库连接密码
-	private String testTable;// 数据库测试表@modified by smallclover
-	private int minConnection;// 数据库连接池最小连接数
-	private int maxConnection;// 数据库连接池最大连接数
-	private long timeoutValue;// 连接的最大空闲时间
-	private long waitTime;// 取得连接的最大等待时间
+	private String testTable;// 数据库测试表
+	private int minConnection = 0;// 数据库连接池最小连接数
+	private int maxConnection = 50;// 数据库连接池最大连接数
+	private long timeoutValue = 600000;// 连接的最大空闲时间
+	private long waitTime = 30000;// 取得连接的最大等待时间
 	private int increamtalConnections = 5;// 连接池自动增加的连接数量
 
 	public String getDriver() {
