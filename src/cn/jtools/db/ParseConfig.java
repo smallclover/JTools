@@ -1,5 +1,6 @@
 package cn.jtools.db;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,9 +36,12 @@ public class ParseConfig {
 		
 		//创建属性结构开始解析
 		try {
-			Document document = saxReader.read("DBConfig.xml");
+			Document document = saxReader.read(new File("src/DBConfig.xml"));
+			if(document == null){
+				System.out.println("null");
+			}
 			Element root = document.getRootElement();//得到节点
-			List<Node> nodes = document.selectNodes("DB-Config/Pool");
+			List<Node> nodes = document.selectNodes("/DB-Config/Pool");
 			
 			for (Node node : nodes) {
 				ConnectionParam cp = new ConnectionParam();
