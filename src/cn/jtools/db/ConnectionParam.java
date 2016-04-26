@@ -22,9 +22,18 @@ public class ConnectionParam implements Serializable {
 	private String testTable;// 数据库测试表
 	private int minConnection = 0;// 数据库连接池最小连接数
 	private int maxConnection = 50;// 数据库连接池最大连接数
-	private long timeoutValue = 600000;// 连接的最大空闲时间
+	private long timeout = 600000;// 连接的最大空闲时间
 	private long waitTime = 30000;// 取得连接的最大等待时间
 	private int increamtalConnections = 5;// 连接池自动增加的连接数量
+	private String type;
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public String getDriver() {
 		return driver;
@@ -82,12 +91,12 @@ public class ConnectionParam implements Serializable {
 		this.maxConnection = maxConnection;
 	}
 
-	public long getTimeoutValue() {
-		return timeoutValue;
+	public long getTimeout() {
+		return timeout;
 	}
 
-	public void setTimeoutValue(long timeoutValue) {
-		this.timeoutValue = timeoutValue;
+	public void setTimeout(long timeout) {
+		this.timeout = timeout;
 	}
 
 	public long getWaitTime() {
