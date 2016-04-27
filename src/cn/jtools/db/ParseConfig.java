@@ -36,12 +36,10 @@ public class ParseConfig {
 		
 		//创建属性结构开始解析
 		try {
-			Document document = saxReader.read(new File("src/DBConfig.xml"));
-			if(document == null){
-				System.out.println("null");
-			}
+//			Document document = saxReader.read(new File("src/DBConfig.xml"));
+			Document document = saxReader.read("src/DBConfig.xml");
 			Element root = document.getRootElement();//得到节点
-			List<Node> nodes = document.selectNodes("/DB-Config/Pool");
+			List<Node> nodes = document.selectNodes("DB-Config/Pool");
 			
 			for (Node node : nodes) {
 				ConnectionParam cp = new ConnectionParam();

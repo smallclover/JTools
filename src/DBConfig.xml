@@ -5,13 +5,13 @@
 		<Type>MySQL</Type>
 		<Driver>com.mysql.jdbc.Driver</Driver>
 		<User>root</User>
-		<Password></Password>
-		<MaxConnection></MaxConnection>
-		<MinConnection></MinConnection>
-		<Url></Url>
-		<WaitTime></WaitTime>
-		<TimeOut></TimeOut>
-		<IncreamtalConnections></IncreamtalConnections>
-		<TestTable></TestTable>
+		<PassWord>123</PassWord>
+		<MaxConnection>10</MaxConnection>
+		<MinConnection>5</MinConnection>
+		<Url>jdbc:mysql://localhost:3306:test</Url>
+		<WaitTime>1</WaitTime>
+		<TimeOut>1</TimeOut>
+		<IncreamtalConnections>1</IncreamtalConnections>
+		<TestTable>test</TestTable>
 	</Pool>
 </DB-Config>

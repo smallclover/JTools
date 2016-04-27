@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Enumeration;
 import java.util.Vector;
+
 /**
  * 数据库连接池
  * @author smartclover
@@ -18,7 +19,7 @@ public class DBConnectionPool {
 	
 	private ConnectionParam param;
 	//Vector动态数组与ArrayList区别是，Vector是线程安全的
-	private Vector connections = null;//存放数据库连接，初始为空，存放PooledConnection类型
+	private Vector<PooledConnection> connections = null;//存放数据库连接，初始为空，存放PooledConnection类型
 	
 	public ConnectionParam getParam() {
 		return param;
@@ -57,7 +58,7 @@ public class DBConnectionPool {
 		//注册驱动
 		DriverManager.registerDriver(driver);//?
 		//创建保存连接的向量容器，初始容量是0
-		connections = new Vector();
+		connections = new Vector<PooledConnection>();
 		
 		//根据initialConnections中设置的值，创建连接
 		createConnections(param.getMinConnection());
@@ -196,7 +197,7 @@ public class DBConnectionPool {
 		// 获得连接池向量中所有的对象
 		//Enumeration（接口）包含两个抽象的方法hasMoreElements(boolean)、nextElement(Object)
 		//add by me 所有的容器类都在内部实现了这个数据结构，使我们很方便的去遍历容器内的元素
-		Enumeration enumerate = connections.elements();//?
+		Enumeration<PooledConnection> enumerate = connections.elements();//?
 		
 		 // 遍历所有的对象，看是否有可用的连接  
 		while(enumerate.hasMoreElements()){
@@ -278,7 +279,7 @@ public class DBConnectionPool {
 		}
 		
 		PooledConnection pConn = null;
-		Enumeration enumerate = connections.elements();
+		Enumeration<PooledConnection> enumerate = connections.elements();
 		
 		// 遍历连接池中的所有连接，找到这个要返回的连接对象 
 		while(enumerate.hasMoreElements()){
@@ -305,7 +306,7 @@ public class DBConnectionPool {
 		}
 		
 		PooledConnection pConn = null;
-		Enumeration enumerate = connections.elements();
+		Enumeration<PooledConnection> enumerate = connections.elements();
 		while(enumerate.hasMoreElements()){
 			
 			// 获得一个连接对象  
@@ -335,7 +336,7 @@ public class DBConnectionPool {
 		}
 		
 		PooledConnection pConn = null;
-		Enumeration enumerate = connections.elements();
+		Enumeration<PooledConnection> enumerate = connections.elements();
 		while(enumerate.hasMoreElements()){
 			pConn = (PooledConnection) enumerate.nextElement();
 			// 如果忙，等 5 秒
