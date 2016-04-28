@@ -6,6 +6,7 @@
  + 1.DBOperator：通过反射的方式实现的对于数据库的增删改查
  + 2.DBConnectionPool：数据库连接池
  + 3.DBConnectionParam：连接数据库所需要的基本字段。
+ 
 ##　算法&数据结构：主要包含各种常用的数据结构和算法：## 
  + 1.LinkedList：单链表
  + 2.DoubleEndLinkedList：双端链表
@@ -19,21 +20,26 @@
  + 10.SequenceQueue：顺序队列
  + 11.ArrayStack：数组栈
  + 12.Stack：栈接口
+ 
 ##　工具类：##
  + 1.StringUtil:字符串操作类工具类
  + 2.ClassUtil:类操作工具类
  + 3.PropUtil:属性文件操作类
+ 
 ##  日志：##
  + 1.ILogFactory：日志对象生成工厂
  + 2.ILogFactoryInterface：日志工厂接口
  + 3.ILogger：日志对象
  + 4.JDKLogger：JDK日志对象
  + 5.JDKLoggerFactory：JDK日志工厂
+ 
 ##  About Me ##
  + [smallclover](www.smallclover.com)
  + [segmentfualt](https://segmentfault.com/u/smallclover)
+ 
 ##  Current Planing ##
  + 1.优化代码
  + 2.优化代码结构
+ 
 ## Others ##
  代码感觉不是很好，打算重构
