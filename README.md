@@ -42,4 +42,5 @@
  + 优化代码结构
  
 ## Others 
- 代码感觉不是很好，打算重构
+ + 代码感觉不是很好，打算重构。
+ + writer once do anymore.
