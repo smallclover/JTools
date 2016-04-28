@@ -1,9 +1,8 @@
 ![image](https://github.com/smallclover/JTools/blob/master/clover/clover_1.png)
 # Welcome to the JTools
-## Java工具包 ##
+# Java工具包 #
 
-###　*正在持续更新中的工具* ###
-- 1. **数据库操作：包含增删改查：** *db*
+## **数据库操作：包含增删改查：##*db*
  + 1.DBOperator：通过反射的方式实现的对于数据库的增删改查
  + 2.DBConnectionPool：数据库连接池
  + 3.DBConnectionParam：连接数据库所需要的基本字段。
