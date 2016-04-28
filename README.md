@@ -1,4 +1,4 @@
-![image](https://github.com/smallclover/JTools/blob/master/clover/clover_1.png)
+![image](https://github.com/smallclover/JTools/blob/master/clover/clover_2.png)
 # Welcome to the JTools
 # Java Tools #
 
