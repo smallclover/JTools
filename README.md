@@ -31,4 +31,10 @@
  + 4.JDKLogger：JDK日志对象
  + 5.JDKLoggerFactory：JDK日志工厂
  ## About Me ##
-www.smallclover.com
+ + [smallclover](www.smallclover.com)
+ + [segmentfualt](https://segmentfault.com/u/smallclover)
+ ##Current Planing##
++ 1.优化代码
++ 2.优化代码结构
+ ##Others##
+ 代码感觉不是很好，打算重构
