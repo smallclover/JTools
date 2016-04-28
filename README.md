@@ -22,9 +22,9 @@
  + Stack：栈接口
  
 ## Utils
- + StringUtil:字符串操作类工具类
- + ClassUtil:类操作工具类
- + PropUtil:属性文件操作类
+ + StringUtil：字符串操作类工具类
+ + ClassUtil：类操作工具类
+ + PropUtil：属性文件操作类
  
 ## Log
  + ILogFactory：日志对象生成工厂
@@ -43,4 +43,4 @@
  
 ## Others 
  + 代码感觉不是很好，打算重构。
- + writer once do anymore.
+ + write once do anymore.
