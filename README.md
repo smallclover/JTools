@@ -6,7 +6,7 @@
  + DBOperator：通过反射的方式实现的对于数据库的增删改查
  + DBConnectionPool：数据库连接池
  + DBConnectionParam：连接数据库所需要的基本字段。
- 
+ + ThreadPool：线程池
 ## Algorithm & DataStructure
  + LinkedList：单链表
  + DoubleEndLinkedList：双端链表
@@ -25,7 +25,7 @@
  + StringUtil：字符串操作类工具类
  + ClassUtil：类操作工具类
  + PropUtil：属性文件操作类
- 
+ + SizeOfObject：对象大小计算
 ## Log
  + ILogFactory：日志对象生成工厂
  + ILogFactoryInterface：日志工厂接口
