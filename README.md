@@ -3,7 +3,7 @@
 # Java Tools #
 
 ## DataBase
- ~~+ DBOperator：通过反射的方式实现的对于数据库的增删改查~~
+ + DBOperator：通过反射的方式实现的对于数据库的增删改查
  
  ~~+ DBConnectionPool：数据库连接池~~
  
@@ -39,7 +39,7 @@
 
 
 ## Utils
- ~~+ StringUtil：字符串操作类工具类~~
+ + StringUtil：字符串操作类工具类
  
  ~~+ ClassUtil：类操作工具类~~
  
@@ -57,7 +57,7 @@
  
  ~~+ JDKLogger：JDK日志对象~~
  
- +~~ JDKLoggerFactory：JDK日志工厂~~
+ ~~+ JDKLoggerFactory：JDK日志工厂~~
 
  
 ## About Me 

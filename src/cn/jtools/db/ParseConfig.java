@@ -1,6 +1,5 @@
 package cn.jtools.db;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,11 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
 
 
-
+/**
+ * 解析数据库Xml文件
+ * @author smallclover
+ *
+ */
 public class ParseConfig {
 	public ArrayList<ConnectionParam> readConfig(){
 		ArrayList<ConnectionParam> param = new ArrayList<>();
