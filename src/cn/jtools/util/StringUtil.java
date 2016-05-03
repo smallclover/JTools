@@ -14,7 +14,8 @@ public class StringUtil {
 	/**
 	 * 判断字符串是否为空
 	 * 
-	 * @param str
+	 * @param str 需要判断的字符串
+	 * 
 	 * @return
 	 */
 	public static boolean isEmpty(String str) {
@@ -22,14 +23,19 @@ public class StringUtil {
 	}
 
 	/**
-	 * Converts string charset. If charset names are the same, the same string
-	 * is returned. 转换字符串编码格式，如果编码格式相同，则直接返回这个字符串。
+	 * 转换字符串的字符集
 	 * 
-	 * @return
+	 * @param source 需要转换的字符串
+	 * 
+	 * @param srcCharsetName 字符串原字符集
+	 * 
+	 * @param newCharset 目标字符集
+	 * 
+	 * @return	
 	 */
 	public static String convertString(String source, String srcCharsetName,
-			String newCharset) {// convert转换
-		if (srcCharsetName.equals(newCharset)) {
+			String newCharset) {
+		if (srcCharsetName.equals(newCharset)) {//如果原字符集与目标字符集相同则直接返回字符串
 			return source;
 		}
 		try {
@@ -38,24 +44,25 @@ public class StringUtil {
 			throw new IllegalArgumentException(e);
 		}
 	}
-
+	
 	/**
+	 * 判断是否包含指定的字符串
 	 * 
-	 * @param sSource
-	 *            源字符串
-	 * @param sItem
-	 *            子串
-	 * @param separator
-	 *            分隔符
-	 * @return 若包含则为true ，反之为false
+	 * @param Source 字符串
+	 * 
+	 * @param Item 指定的字符串
+	 * 
+	 * @param separator 分隔符
+	 * 
+	 * @return true or false
 	 */
-	public static boolean isContain(String sSource, String sItem,
+	public static boolean isContain(String Source, String Item,
 			String separator) {
 		boolean isReturn = false;
 		StringTokenizer st = null;// ?
-		st = new StringTokenizer(sSource, separator);
+		st = new StringTokenizer(Source, separator);
 		while (st.hasMoreTokens()) {
-			if (sItem.equals(st.nextToken())) {
+			if (Item.equals(st.nextToken())) {
 				isReturn = true;
 				break;
 			}
