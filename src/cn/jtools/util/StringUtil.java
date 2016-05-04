@@ -69,5 +69,40 @@ public class StringUtil {
 		}
 		return isReturn;
 	}
-
+	
+	/**
+	 * 检查字符串是否全部是小写
+	 * @param str 原字符串
+	 * @return true or false
+	 */
+	public static boolean isAllLowerCase(String str){
+		if(StringUtil.isEmpty(str)){
+			return false;
+		}
+		int len = str.length();
+		for (int i = 0; i < len; i++) {
+			if (Character.isLowerCase(str.charAt(i)) == false) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * 检查字符串是否全部为大写
+	 * @param str 原字符串
+	 * @return
+	 */
+	public static boolean isAllUpperCase(String str){
+		if(StringUtil.isEmpty(str)){
+			return false;
+		}
+		int len = str.length();
+		for (int i = 0; i < len; i++) {
+			if (Character.isUpperCase(str.charAt(i)) == false) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
