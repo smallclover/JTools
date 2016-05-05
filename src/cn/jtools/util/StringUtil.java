@@ -105,4 +105,17 @@ public class StringUtil {
 		}
 		return true;
 	}
+	
+	/**
+	 * 反转字符串
+	 * @param str原字符串
+	 * @return 反转之后的字符串
+	 */
+	public static String reverse(String str){
+		if(str == null){
+			return null;
+		}
+		
+		return new StringBuilder().reverse().toString();
+	}
 }
