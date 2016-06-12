@@ -8,8 +8,14 @@ package cn.jtools.base.datastruct;
  * @param <T>
  */
 public class ArrayStack<T> implements Stack<T> {
-	private Object[] objs = new Object[16];
+
+	private static final int DEFAULT_LENGTH = 16;
+	private Object[] objs = new Object[DEFAULT_LENGTH];
 	private int size = 0;
+
+	public ArrayStack(){
+
+	}
 
 	@Override
 	public boolean isEmpty() {
@@ -35,7 +41,7 @@ public class ArrayStack<T> implements Stack<T> {
 			resize();
 		}
 		
-		objs[size++] = data; 
+		objs[size++] = data;
 		return true;
 	}
 
@@ -51,7 +57,7 @@ public class ArrayStack<T> implements Stack<T> {
 	
 	
 	private void resize(){
-		Object[] temp = new Object[objs.length * 3 /2 + 1];//?数组的扩展策略
+		Object[] temp = new Object[objs.length * 3 /2 + 1];//数组的扩展策略
 		for(int i = 0; i < size; i++){
 			temp[i] = objs[i];
 			objs[i] = null;
@@ -72,7 +78,11 @@ public class ArrayStack<T> implements Stack<T> {
 		sb.append("]");
 		return sb.toString();
 	}
-	
+
+	/**
+	 * 测试
+	 * @param args
+     */
 	public static void main(String[] args) {
 		ArrayStack<Integer> as = new ArrayStack<>();
 		as.push(10);

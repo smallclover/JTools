@@ -44,8 +44,6 @@
  + ClassUtil：类操作工具类
  
  + PropUtil：属性文件操作类
- 
- + SizeOfObject：对象大小计算
 
 
 ## Log

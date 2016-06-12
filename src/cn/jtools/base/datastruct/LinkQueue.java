@@ -8,7 +8,7 @@ package cn.jtools.base.datastruct;
  *
  * @param <T>
  */
-public class LinkQueue<T> {
+public class LinkQueue<T> implements Quque<T>{
 	
 	private class Node{
 		public T data;//存储数据

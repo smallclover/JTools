@@ -1,6 +1,10 @@
 package cn.jtools.base.datastruct;
 
-public interface Stack<T> {
+/**
+ * 数据结构：栈
+ * @param <T>
+ */
+public interface Stack<T> extends AbstractDataStruct{
 	
 	boolean isEmpty();
 	

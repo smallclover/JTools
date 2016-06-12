@@ -1,5 +1,7 @@
 package cn.jtools.util;
 
+import cn.jtools.exception.GenerateException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -14,18 +16,18 @@ public class PropsUtil {
 
 	/**
 	 * 加载属性文件 
-	 * @param propsPath
-	 * @return 属性文件的对象
+	 * @param propsPath 配置文件路径
+	 * @return Properties object
 	 */
-	public static Properties loadProps(String propsPath) {//?属性文件需要位于src目录下？？
+	public static Properties loadProps(String propsPath) {
 		Properties props = new Properties();
 		InputStream is = null;
 		try {
 			if (StringUtil.isEmpty(propsPath)) {
-				throw new IllegalAccessException();//?
+				throw new IllegalAccessException();
 			}
 			String suffix = ".properties";
-			if(propsPath.lastIndexOf(suffix) == -1){//?
+			if(propsPath.lastIndexOf(suffix) == -1){
 				propsPath += suffix;
 			}
 			is = ClassUtil.getClassLoader().getResourceAsStream(propsPath);
@@ -33,15 +35,14 @@ public class PropsUtil {
 				props.load(is);
 			}
 		} catch (Exception e) {
-			System.out.println("属性文件加载失败");
-			throw new RuntimeException(e);
+			throw new GenerateException("属性文件加载失败",e);
 		} finally{
 				try {
 					if(is != null){
 						is.close();
 					}
 				} catch (IOException e) {
-					System.out.println("释放资源出错");
+					throw new GenerateException("释放资源失败",e);
 				}
 		}
 		return props;
@@ -49,8 +50,8 @@ public class PropsUtil {
 	
 	/**
 	 * 获取字符型属性
-	 * @param props
-	 * @param key
+	 * @param props 配置文件对象
+	 * @param key 属性键
 	 * @return 属性的值
 	 */
 	public static String getString(Properties props, String key){

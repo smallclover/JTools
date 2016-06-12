@@ -16,7 +16,7 @@ public class StringUtil {
 	 * 
 	 * @param str 需要判断的字符串
 	 * 
-	 * @return
+	 * @return true or false
 	 */
 	public static boolean isEmpty(String str) {
 		return ((str == null) || (str.length() == 0));
@@ -31,7 +31,7 @@ public class StringUtil {
 	 * 
 	 * @param newCharset 目标字符集
 	 * 
-	 * @return	
+	 * @return	String
 	 */
 	public static String convertString(String source, String srcCharsetName,
 			String newCharset) {
@@ -59,7 +59,7 @@ public class StringUtil {
 	public static boolean isContain(String Source, String Item,
 			String separator) {
 		boolean isReturn = false;
-		StringTokenizer st = null;// ?
+		StringTokenizer st = null;
 		st = new StringTokenizer(Source, separator);
 		while (st.hasMoreTokens()) {
 			if (Item.equals(st.nextToken())) {
@@ -91,7 +91,7 @@ public class StringUtil {
 	/**
 	 * 检查字符串是否全部为大写
 	 * @param str 原字符串
-	 * @return
+	 * @return true or false
 	 */
 	public static boolean isAllUpperCase(String str){
 		if(StringUtil.isEmpty(str)){
@@ -109,13 +109,12 @@ public class StringUtil {
 	/**
 	 * 反转字符串
 	 * @param str原字符串
-	 * @return 反转之后的字符串
+	 * @return String
 	 */
 	public static String reverse(String str){
 		if(str == null){
 			return null;
 		}
-		
 		return new StringBuilder().reverse().toString();
 	}
 }

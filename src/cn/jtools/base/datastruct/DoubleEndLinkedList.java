@@ -6,7 +6,7 @@ package cn.jtools.base.datastruct;
  * @author smartclover
  * 
  */
-public class DoubleEndLinkedList {
+public class DoubleEndLinkedList implements List{
 
 	/**
 	 * 

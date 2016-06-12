@@ -6,7 +6,7 @@ package cn.jtools.base.datastruct;
  * @author smartclover
  * 
  */
-public class LinkedList {
+public class LinkedList implements List{
 	// 链表节点
 	private class Data {
 		private Object obj; // 存储的数据

@@ -8,10 +8,10 @@ package cn.jtools.util;
 public class ClassUtil {
 	
 	/**
-	 * 获取类加载器
-	 * @return
+	 * 获取当前线程类加载器
+	 * @return 当前线程类加载器
 	 */
 	public static ClassLoader getClassLoader(){
-		return Thread.currentThread().getContextClassLoader();//?
+		return Thread.currentThread().getContextClassLoader();
 	}
 }

@@ -1,8 +1,6 @@
 package cn.jtools.test;
 
-import cn.jtools.designpattern.singleton.Singleton;
-import cn.jtools.designpattern.singleton.Singleton_1;
-import cn.jtools.designpattern.singleton.Singleton_final;
+import cn.jtools.designpattern.Singleton_final;
 
 /**
  * 饿汉单例模式测试
