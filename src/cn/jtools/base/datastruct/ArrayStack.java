@@ -4,6 +4,7 @@ package cn.jtools.base.datastruct;
  * 
  * @author smallclover
  *
+ * 以数组方式实现的栈
  * @param <T>
  */
 public class ArrayStack<T> implements Stack<T> {
@@ -44,7 +45,7 @@ public class ArrayStack<T> implements Stack<T> {
 			return null;
 		}
 		T t = (T) objs[--size];
-		objs[size] = null;
+		objs[size] = null;//如果这里不将弹出的元素置为null将会存在内存泄漏的可能
 		return t;
 	}
 	
