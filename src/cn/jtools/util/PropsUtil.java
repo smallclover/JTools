@@ -26,6 +26,7 @@ public class PropsUtil {
 			if (StringUtil.isEmpty(propsPath)) {
 				throw new IllegalAccessException();
 			}
+
 			String suffix = ".properties";
 			if(propsPath.lastIndexOf(suffix) == -1){
 				propsPath += suffix;
