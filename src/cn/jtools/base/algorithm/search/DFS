@@ -1,0 +1,66 @@
+package cn.jtools.base.algorithm.search;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class DFS {
+    Map<String, List<String>> graph = new HashMap<>();
+    public boolean BreadthFirstSearch(String name){
+        Queue<String> searchQueue = new ArrayDeque<>();
+        searchQueue.addAll(graph.get(name).stream().collect(Collectors.toList()));
+        List<String> check = new ArrayList<>();
+        //List<String> result = new ArrayList<>();
+        //result.add(name);
+        while (searchQueue.size() != 0){
+            String seller = searchQueue.poll();
+            if (!check.contains(seller)){
+                if (isSeller(seller)) {
+                    System.out.println("contain char (m) :"+seller);
+                    return true;
+                }else {
+                    check.add(seller);
+                    if (graph.get(seller) != null){
+                        //System.out.println("添加元素:"+seller+"的次级元素");
+                        searchQueue.addAll(graph.get(seller).stream().collect(Collectors.toList()));
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean isSeller(String name){
+        //System.out.println("开始检查元素:"+name);
+        if (name.contains("M")){
+            return true;
+        }
+        return false;
+    }
+
+    //@Test
+    public void testGraph(){
+        List<String> you = new ArrayList<>();
+        you.add("BOB");
+        you.add("ALICE");
+        you.add("CLAIRE");
+        //you.add("MMMMMM");
+        graph.put("you", you);
+        List<String> BOB = new ArrayList<>();
+        BOB.add("ANUJ");
+        BOB.add("PEGGY");
+        graph.put("BOB", BOB);
+        List<String> ALICE = new ArrayList<>();
+        ALICE.add("PEGGY");
+        graph.put("ALICE", ALICE);
+        List<String> CLAIRE = new ArrayList<>();
+        CLAIRE.add("THOM");
+        CLAIRE.add("JONNY");
+        graph.put("CLAIRE", CLAIRE);
+        List<String> JONNY = new ArrayList<>();
+        CLAIRE.add("SMALLCLOVER");
+        graph.put("JONNY", JONNY);
+        boolean bool = BreadthFirstSearch("you");
+        //System.out.println(bool);
+    }
+}
