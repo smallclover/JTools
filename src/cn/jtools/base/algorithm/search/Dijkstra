@@ -1,0 +1,163 @@
+package cn.jtools.base.algorithm.search;
+
+import org.junit.Test;
+
+import java.util.*;
+
+public class Dijkstra {
+    static Map<String, Map<String, Integer>> graph = new HashMap<>();
+    static Map<String, Integer> costs = new HashMap<>();
+    static Map<String, String> parents = new HashMap<>();
+
+    static List<String> processed = new ArrayList<>();
+    static List<String> road = new ArrayList<>();
+    static Stack<String> result = new Stack<>();
+    //example 1
+/*    static {
+        //create graph
+        //start
+        Map<String, Integer> start = new HashMap<>();
+        start.put("a", 6);
+        start.put("b", 2);
+        graph.put("start", start);
+        //a
+        Map<String, Integer> a = new HashMap<>();
+        a.put("fin", 1);
+        graph.put("a", a);
+        //b
+        Map<String, Integer> b = new HashMap<>();
+        b.put("a", 3);
+        b.put("fin", 5);
+        graph.put("b", b);
+        //fin
+        Map<String, Integer> fin = new HashMap<>();
+        graph.put("fin", fin);
+        //create costs
+        //the cost from start to fin
+        costs.put("a", 6);
+        costs.put("b", 2);
+        costs.put("fin", Integer.MAX_VALUE);
+        //create parents
+        //save parent node
+        parents.put("a", "start");
+        parents.put("b", "start");
+        parents.put("fin", "-");//"-" equal null
+    }*/
+    //example 2
+    static {
+        //create graph
+        //start
+        Map<String, Integer> start = new HashMap<>();
+        start.put("a", 5);
+        start.put("b", 2);
+        graph.put("start", start);
+        //a
+        Map<String, Integer> a = new HashMap<>();
+        a.put("c", 4);
+        a.put("d", 2);
+        graph.put("a", a);
+        //b
+        Map<String, Integer> b = new HashMap<>();
+        b.put("a", 8);
+        b.put("d", 7);
+        graph.put("b", b);
+        //c
+        Map<String, Integer> c = new HashMap<>();
+        c.put("d", 6);
+        c.put("fin", 3);
+        graph.put("c", c);
+        //d
+        Map<String, Integer> d = new HashMap<>();
+        d.put("fin", 1);
+        graph.put("d", d);
+        //fin
+        Map<String, Integer> fin = new HashMap<>();
+        graph.put("fin", fin);
+        //create costs
+        //the cost from start to fin
+        costs.put("a", 5);
+        costs.put("b", 2);
+        costs.put("c", Integer.MAX_VALUE);
+        costs.put("d", Integer.MAX_VALUE);
+        costs.put("fin", Integer.MAX_VALUE);
+        //create parents
+        //save parent node
+        parents.put("a", "start");
+        parents.put("b", "start");
+        parents.put("c", "-");
+        parents.put("d", "-");
+        parents.put("fin", "-");//"-" equal null
+    }
+    public void DFS() {
+        String node = findLowest_cost_node(costs);
+        while (node != null){
+            int cost = costs.get(node);
+            Map<String, Integer> neighbors = graph.get(node);
+            for (Map.Entry<String, Integer> entry: neighbors.entrySet()){
+                int newCost = cost + entry.getValue();
+                if (costs.get(entry.getKey()) > newCost){
+                    costs.put(entry.getKey(), newCost);
+                    parents.put(entry.getKey(), node);
+                }
+            }
+            processed.add(node);
+            node = findLowest_cost_node(costs);
+        }
+    }
+
+    public String findLowest_cost_node(Map<String, Integer> costs){
+        Integer lowestCost = Integer.MAX_VALUE;
+        String lowestCostNode = null;
+        for (Map.Entry<String, Integer> entry: costs.entrySet()){
+            int cost = entry.getValue();
+            if (cost < lowestCost && !processed.contains(entry.getKey())) {
+                lowestCost = cost;
+                lowestCostNode = entry.getKey();
+            }
+        }
+        return lowestCostNode;
+    }
+
+    @Test
+    public void testDFS(){
+        DFS();
+        System.out.println("最短路径");
+        getShortestPath();
+    }
+
+    public void getShortestPath(){
+        getRoad("fin", parents.get("fin"));
+        getResult();
+    }
+
+    private void getRoad(String key, String value){
+
+        if (key == "fin") {
+            road.add(key);
+            result.push(key);
+        }
+        if (value == "start") {
+            road.add(value);
+            result.push(value);
+            return;
+        }else {
+            road.add(value);
+            result.push(value);
+            getRoad(value,parents.get(value));
+        }
+    }
+
+    private void getResult(){
+        while (true) {
+            if (result.size() == 0){
+                break;
+            }
+            String point = result.pop();
+            if (!point.equals("fin")){
+                System.out.print(point+"->");
+            }else {
+                System.out.print(point);
+            }
+        }
+    }
+}
